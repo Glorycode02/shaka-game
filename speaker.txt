@@ -1,0 +1,44 @@
+let currentNumberIndex = 0;
+
+function speakNumbersSequentially() {
+  if ('speechSynthesis' in window) {
+    // Check if we haven't reached the end of the numbers array
+    if (currentNumberIndex < numbers.length) {
+      const currentNumber = numbers[currentNumberIndex].textContent;
+
+      // Function to check if at least one player has reached the current number
+      function checkPlayersReachedNumber() {
+        if (playerone.index == currentNumberIndex || playertwo.index == currentNumberIndex) {
+          const message = new SpeechSynthesisUtterance();
+          message.text = `Find ${currentNumber}`;
+          speechSynthesis.speak(message);
+
+          // Increment the index to announce the next number
+          currentNumberIndex++;
+
+          // Wait for the current announcement to finish before announcing the next number
+          message.onend = () => {
+            speakNumbersSequentially();
+          };
+        } else {
+          // Players haven't reached the current number yet, wait and check again
+          setTimeout(checkPlayersReachedNumber, 100);
+        }
+      }
+
+      // Start checking if players have reached the current number
+      checkPlayersReachedNumber();
+    } else {
+      // All numbers have been announced
+      console.log("All numbers have been announced.");
+    }
+  } else {
+    console.log("Speech synthesis is not supported in this browser.");
+  }
+}
+
+// Call the function to start announcing the numbers sequentially
+speakNumbersSequentially();
+
+https://youtu.be/Gfx9UV2tpLg
+https://l.facebook.com/l.php?u=https%3A%2F%2Fyoutu.be%2Fb9_LqHXYO0Q%3Fsi%3DFwt30ino69dPu80H%26fbclid%3DIwAR0pqKPdL7Z6mKM_Y1VURPAUerkbz0hPL4aflBo33tmpovFMH4vwqAItM-c&h=AT2Fd834bHhpwQRqdP6Dy_sXsXsK6w3i89flGnaUwAy3UaGaIBpgrwFcSRsFieYLhyPhaixekQq5IxOo-jfnZRJqzbUb7Kjbg7bQg0bgaCp9l0j6ZOfoK5ELnquuZ-negFRS&__tn__=-UK*F

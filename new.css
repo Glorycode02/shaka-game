@@ -1,0 +1,177 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #000;
+}
+
+.gameongoing {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.gameongoing>div {
+    width: 33.33%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.playone {
+    color: orange;
+    font-family: system-ui;
+}
+
+.gametitle h1 {
+    font-family: system-ui;
+    color: orange;
+}
+
+.gametitle span {
+    font-family: system-ui;
+    color: dodgerblue;
+}
+
+.playtwo {
+    color: dodgerblue;
+    font-family: system-ui;
+}
+
+.findandscores {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.findandscores>div {
+    width: 33.33%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreone h3 {
+    color: orange;
+    font-family: system-ui;
+}
+
+.find h2{
+        background: linear-gradient(to right, orange, dodgerblue);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-family: system-ui;
+}
+
+.scoretwo h3 {
+    color: dodgerblue;
+    font-family: system-ui;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(10, 50px);
+    grid-template-rows: repeat(10px, 50px);
+    grid-gap: 20px;
+    width: 100%;
+    place-content: center;
+    place-items: center;
+    height: auto;
+    margin-top: 50px;
+}
+
+
+
+button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background: #222;
+    color: white;
+}
+
+.playerone {
+    border: 3px solid orange;
+}
+
+.playertwo {
+    border: 3px solid dodgerblue;
+}
+
+.checkedone {
+    position: relative;
+    background: rgba(255, 166, 0, 0.662);
+    overflow: hidden;
+}
+
+.checkedone::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: orange;
+    transform: rotate(180deg);
+}
+
+.checkedtwo {
+    position: relative;
+    background: rgba(0, 195, 255, 0.662);
+    overflow: hidden;
+}
+
+.checkedtwo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 30px;
+    height: 30px;
+    background: dodgerblue;
+    transform: rotate(180deg);
+}
+
+.oneindex {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #222;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.oneindex::before {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 55px;
+    background: orange;
+    left: -3px;
+    z-index: -1;
+}
+
+.oneindex::after {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 55px;
+    background: dodgerblue;
+    right: -3px;
+    z-index: -1;
+}
